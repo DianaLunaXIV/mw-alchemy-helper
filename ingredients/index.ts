@@ -16,7 +16,6 @@ class Ingredients {
     }
 
 
-    //pass comma separated values here to make pool selections
     assembleIngredientsPool(includesMorrowind: boolean, includesTribunal: boolean, includesBloodmoon: boolean): Array<Object> {
         let ingredientsToReturn: Array<Object> = [];
         
