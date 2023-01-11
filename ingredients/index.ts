@@ -7,11 +7,17 @@ class Ingredients {
     readonly morrowindIngredients: Ingredient[];
     readonly tribunalIngredients: Ingredient[];
     readonly bloodmoonIngredients: Ingredient[];
+    ingredientsBeingUsed: Ingredient[];
 
     constructor() {
         this.morrowindIngredients = morrowindIngredientsJson as Ingredient[];
         this.tribunalIngredients = tribunalIngredientsJson as Ingredient[];
         this.bloodmoonIngredients = bloodmoonIngredientsJson as Ingredient[];
+        this.ingredientsBeingUsed = [] as Ingredient[];
+    }
+
+    findByName(ingredientName: string): Ingredient | undefined {
+        return this.ingredientsBeingUsed.find(ingredient => ingredient.name === ingredientName)
     }
 
 
@@ -40,7 +46,7 @@ class Ingredients {
             throw Error("Please make an ingredient source selection.");
         }
 
-
+        this.ingredientsBeingUsed = ingredientsToReturn;
         return ingredientsToReturn;
 
     }
