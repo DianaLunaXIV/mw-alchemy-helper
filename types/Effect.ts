@@ -1,7 +1,7 @@
 type Effect = {
-    imageURL: string;
-    effectURL: string;
-    effectName: string;
-}
+  imageURL: string;
+  effectURL: string;
+  effectName: string;
+};
 
 export default Effect;
