@@ -7,7 +7,7 @@ describe('Home', () => {
         render(<Home />)
 
         const heading = screen.getByRole('heading', {
-            name: /Morrowind Alchemy Helper/i,
+            name: "Morrowind Alchemy Helper",
         })
 
         expect(heading).toBeInTheDocument()
