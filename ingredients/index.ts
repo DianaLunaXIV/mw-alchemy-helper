@@ -1,23 +1,22 @@
-import * as morrowindIngredientsJson from "./morrowind-ingredients.json";
-import * as tribunalIngredientsJson from "./tribunal-ingredients.json";
-import * as bloodmoonIngredientsJson from "./bloodmoon-ingredients.json";
-import ingredient from "../types/Ingredient";
+import morrowindIngredientsJson from "./morrowind-ingredients.json";
+import tribunalIngredientsJson from "./tribunal-ingredients.json";
+import bloodmoonIngredientsJson from "./bloodmoon-ingredients.json";
 import Ingredient from "../types/Ingredient";
 
 class Ingredients {
-    readonly morrowindIngredients: Array<Object>;
-    readonly tribunalIngredients: Array<Object>;
-    readonly bloodmoonIngredients: Array<Object>;
+    readonly morrowindIngredients: Ingredient[];
+    readonly tribunalIngredients: Ingredient[];
+    readonly bloodmoonIngredients: Ingredient[];
 
     constructor() {
-        this.morrowindIngredients = morrowindIngredientsJson;
-        this.tribunalIngredients = tribunalIngredientsJson;
-        this.bloodmoonIngredients = bloodmoonIngredientsJson;
+        this.morrowindIngredients = morrowindIngredientsJson as Ingredient[];
+        this.tribunalIngredients = tribunalIngredientsJson as Ingredient[];
+        this.bloodmoonIngredients = bloodmoonIngredientsJson as Ingredient[];
     }
 
 
-    assembleIngredientsPool(includesMorrowind: boolean, includesTribunal: boolean, includesBloodmoon: boolean): Array<Object> {
-        let ingredientsToReturn: Array<Object> = [];
+    assembleIngredientsPool(includesMorrowind: boolean, includesTribunal: boolean, includesBloodmoon: boolean): Ingredient[] {
+        let ingredientsToReturn: Ingredient[] = [];
         
         if (includesMorrowind) {
            for (let i = 0; i < Object.keys(this.morrowindIngredients).length; i++) {

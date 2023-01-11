@@ -9,7 +9,7 @@ type Ingredient = {
     value: string;
     weight: string;
     harvestProbability: string;
-    effects: [Effect];
+    effects: Effect[];
 }
 
 export default Ingredient;
