@@ -4,6 +4,7 @@ import styles from "../../styles/Home.module.css";
 import Effect from "../../types/Effect";
 import Link from "next/link";
 import EffectEntry from "./EffectEntry";
+import IngredientHeader from "./IngredientHeader";
 
 interface IngredientDisplayProps {
   ingredient: Ingredient | undefined;
@@ -14,14 +15,13 @@ const IngredientDisplay: React.FC<IngredientDisplayProps> = ({
 }) => {
   return (
     <div className={styles.card}>
-      <h1>
-        {ingredient ? (
-          <a href={ingredient.url}>{ingredient.name}</a>
-        ) : (
-          "nothing"
-        )}
-      </h1>
-      {ingredient ? <br /> : null}
+      {ingredient ? (
+        <>
+          <IngredientHeader ingredient={ingredient} /> <br />
+        </>
+      ) : (
+        <h1>+</h1>
+      )}
       <>
         {ingredient?.effects.map((eff) => (
           <EffectEntry effect={eff} />
