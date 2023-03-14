@@ -14,7 +14,7 @@ const IngredientDisplay: React.FC<IngredientDisplayProps> = ({
   ingredient,
 }) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} key={ingredient?.id}>
       {ingredient ? (
         <>
           <IngredientHeader ingredient={ingredient} /> <br />
@@ -24,7 +24,7 @@ const IngredientDisplay: React.FC<IngredientDisplayProps> = ({
       )}
       <>
         {ingredient?.effects.map((eff) => (
-          <EffectEntry effect={eff} />
+          <EffectEntry effect={eff} key={eff.effectName} />
         ))}
       </>
     </div>
