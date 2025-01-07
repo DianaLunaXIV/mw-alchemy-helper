@@ -21,31 +21,11 @@ const IngredientDisplay: React.FC<IngredientDisplayProps> = ({
     <div className={styles.card} key={ingredient?.id}>
       {selectedIngredient ? (
         <>
-          <button onClick={() => setIsOpen(true)}>Search...</button>
-          <IngredientHeader ingredient={selectedIngredient} /> <br />
-          {isOpen && (
-            <SearchModal 
-              setIsOpen={setIsOpen}
-              onIngredientFound={(ingredient) => {
-                setSelectedIngredient(ingredient);
-                setIsOpen(false);
-              }}
-            />
-          )}
+          <IngredientHeader ingredient={selectedIngredient} />
         </>
       ) : (
         <>
-          <button onClick={() => setIsOpen(true)}>Search...</button>
           <h1>+</h1>
-          {isOpen && (
-            <SearchModal 
-              setIsOpen={setIsOpen}
-              onIngredientFound={(ingredient) => {
-                setSelectedIngredient(ingredient);
-                setIsOpen(false);
-              }}
-            />
-          )}
         </>
       )}
       <>
@@ -53,6 +33,16 @@ const IngredientDisplay: React.FC<IngredientDisplayProps> = ({
           <EffectEntry effect={eff} key={eff.effectName} />
         ))}
       </>
+      <button onClick={() => setIsOpen(true)}>Search</button>
+      {isOpen && (
+            <SearchModal 
+              setIsOpen={setIsOpen}
+              onIngredientFound={(ingredient) => {
+                setSelectedIngredient(ingredient);
+                setIsOpen(false);
+              }}
+            />
+      )}
     </div>
   );
 };

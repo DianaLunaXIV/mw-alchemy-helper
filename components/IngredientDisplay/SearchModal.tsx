@@ -10,9 +10,6 @@ const SearchModal = ({ setIsOpen, onIngredientFound }: SearchModalProps) => {
     return (
       <>
         <div className={styles.centered}>
-            <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
-              <p>Close</p>
-            </button>
             <input 
               type="text" 
               placeholder="Search for an ingredient"
@@ -24,6 +21,9 @@ const SearchModal = ({ setIsOpen, onIngredientFound }: SearchModalProps) => {
                 }
               }}
             />
+            <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
+              <p>[x]</p>
+            </button>
           </div>
       </>
     );
